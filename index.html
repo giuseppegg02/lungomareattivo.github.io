@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lungomare Attivo - Il Giro delle Onde</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Lungomare Attivo</h1>
+      <p class="subtitle">Il Giro delle Onde</p>
+      <p class="tagline">Scopri il tuo livello di preparazione sportiva</p>
+      <a href="#questionario" class="btn-start">Inizia il Questionario</a>
+    </div>
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z" fill="#f0f8ff"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <section id="questionario" class="questionario-section">
+      <div class="container">
+        <h2>Questionario Preparazione Sportiva</h2>
+        <p class="section-desc">Rispondi alle domande per scoprire il tuo livello di preparazione</p>
+
+        <form id="quiz-form">
+          <!-- Domanda 1 -->
+          <div class="question-card" data-question="1">
+            <span class="question-number">1 / 5</span>
+            <h3>Quanto spesso fai attività fisica?</h3>
+            <div class="options">
+              <label class="option-label">
+                <input type="radio" name="q1" value="1" required>
+                <span class="option-text">Raramente o mai</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q1" value="2">
+                <span class="option-text">1-2 volte a settimana</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q1" value="3">
+                <span class="option-text">3 o più volte a settimana</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Domanda 2 -->
+          <div class="question-card" data-question="2">
+            <span class="question-number">2 / 5</span>
+            <h3>Riesci a correre per 30 minuti senza fermarti?</h3>
+            <div class="options">
+              <label class="option-label">
+                <input type="radio" name="q2" value="1" required>
+                <span class="option-text">No, mi fermo dopo pochi minuti</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q2" value="2">
+                <span class="option-text">Riesco con qualche difficoltà</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q2" value="3">
+                <span class="option-text">Sì, senza problemi</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Domanda 3 -->
+          <div class="question-card" data-question="3">
+            <span class="question-number">3 / 5</span>
+            <h3>Pratichi regolarmente uno sport?</h3>
+            <div class="options">
+              <label class="option-label">
+                <input type="radio" name="q3" value="1" required>
+                <span class="option-text">No, non pratico sport</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q3" value="2">
+                <span class="option-text">Sì, occasionalmente</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q3" value="3">
+                <span class="option-text">Sì, in modo agonistico/strutturato</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Domanda 4 -->
+          <div class="question-card" data-question="4">
+            <span class="question-number">4 / 5</span>
+            <h3>Come valuti la tua flessibilità?</h3>
+            <div class="options">
+              <label class="option-label">
+                <input type="radio" name="q4" value="1" required>
+                <span class="option-text">Scarsa, faccio fatica a piegarmi</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q4" value="2">
+                <span class="option-text">Discreta, mi alleno ogni tanto</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q4" value="3">
+                <span class="option-text">Buona, faccio stretching regolarmente</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Domanda 5 -->
+          <div class="question-card" data-question="5">
+            <span class="question-number">5 / 5</span>
+            <h3>Hai mai fatto allenamento in spiaggia o sulla sabbia?</h3>
+            <div class="options">
+              <label class="option-label">
+                <input type="radio" name="q5" value="1" required>
+                <span class="option-text">Mai</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q5" value="2">
+                <span class="option-text">Qualche volta</span>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="q5" value="3">
+                <span class="option-text">Sì, lo faccio spesso</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Scopri il tuo Livello</button>
+        </form>
+
+        <!-- Risultato -->
+        <div id="risultato" class="risultato-container" style="display:none;">
+          <div class="risultato-card">
+            <div class="level-badge" id="level-badge">
+              <span class="level-icon"></span>
+              <h3 id="level-title"></h3>
+            </div>
+            <p id="level-description"></p>
+            <p id="level-score"></p>
+
+            <div class="videos-section">
+              <h4>Video Consigliati per il tuo Livello</h4>
+              <div class="videos-grid" id="videos-grid"></div>
+            </div>
+
+            <button id="btn-retry" class="btn-retry">Ricomincia il Questionario</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Lungomare Attivo - Il Giro delle Onde</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
