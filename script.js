@@ -1,70 +1,70 @@
 const LEVELS = {
   principiante: {
     title: "Principiante",
-    icon: "🌱",
-    description: "Sei all'inizio del tuo percorso sportivo. Non preoccuparti, con costanza e i giusti esercizi puoi migliorare rapidamente!",
+    icon: "🌊",
+    description: "Sei all'inizio del tuo percorso lungo il lungomare di Manfredonia. Con le prime onde come compagne, inizierai a sentire il ritmo del mare. Il Gargano ti aspetta, passo dopo passo.",
     range: "5 - 8 punti",
     videos: [
       {
-        title: "Allenamento Base per Principianti",
+        title: "Camminata Attiva sul Lungomare",
         url: "https://www.youtube.com/watch?v=ING1gEhMVOs",
-        desc: "Esercizi semplici per iniziare"
+        desc: "Il primo passo verso il mare"
       },
       {
-        title: "Stretching per Principianti",
+        title: "Stretching Mattutino in Piazza",
         url: "https://www.youtube.com/watch?v=QOVaHwm-Q6U",
-        desc: "Migliora la tua flessibilità"
+        desc: "Risveglia il corpo sotto il sole pugliese"
       },
       {
-        title: "Camminata Attiva in Spiaggia",
+        title: "Yoga Base sulla Sabbia",
         url: "https://www.youtube.com/watch?v=njeZ29umqVE",
-        desc: "Primi passi verso il movimento"
+        desc: "Connessione tra corpo e Adriatico"
       }
     ]
   },
   intermedio: {
     title: "Intermedio",
-    icon: "💪",
-    description: "Hai una buona base di preparazione. Con gli allenamenti giusti puoi fare il salto di qualità!",
+    icon: "🏛️",
+    description: "Hai già le basi, come le fondamenta dell'antica Siponto. Il tuo corpo è pronto per allenamenti più strutturati tra le onde e le strade di Manfredonia. Il Gargano ti chiama a salire!",
     range: "9 - 12 punti",
     videos: [
       {
-        title: "Allenamento Funzionale a Corpo Libero",
+        title: "Allenamento Funzionale Beach",
         url: "https://www.youtube.com/watch?v=UBMk30rjy0o",
-        desc: "Potenzia tutto il corpo"
+        desc: "Forza tra sabbia e sale"
       },
       {
         title: "HIIT Spiaggia - 20 Minuti",
         url: "https://www.youtube.com/watch?v=cZnsLVArIt8",
-        desc: "Cardio intenso sulla sabbia"
+        desc: "Cardio intenso sulle onde"
       },
       {
-        title: "Esercizi di Mobilità Articolare",
+        title: "Mobilità per Corse sul Lungomare",
         url: "https://www.youtube.com/watch?v=SedzsuE4hQQ",
-        desc: "Prevenzione infortuni"
+        desc: "Prepara le articolazioni ai km costieri"
       }
     ]
   },
   avanzato: {
     title: "Avanzato",
-    icon: "🏆",
-    description: "Ottimo! Hai un livello di preparazione eccellente. Sei pronto per sfide ad alta intensità!",
+    icon: "🏰",
+    description: "Sei un vero atleta del Gargano, come i guerrieri del Castello Svevo. La sabbia di Siponto è il tuo campo di allenamento. Preparati per il Giro delle Onde al massimo livello!",
     range: "13 - 15 punti",
     videos: [
       {
-        title: "Allenamento Esplosivo Beach Workout",
+        title: "Beach Workout Esplosivo",
         url: "https://www.youtube.com/watch?v=ml6cT4AZdqI",
-        desc: "Massima intensità sulla sabbia"
+        desc: "Potenza esplosiva sulla costa"
       },
       {
         title: "Circuit Training Avanzato",
         url: "https://www.youtube.com/watch?v=UItWltVZZmE",
-        desc: "Forza e resistenza combinati"
+        desc: "Forza totale tra le rovine"
       },
       {
         title: "Yoga Dinamico per Atleti",
         url: "https://www.youtube.com/watch?v=v7AYKMP6rOE",
-        desc: "Recupero attivo e flessibilità"
+        desc: "Recupero attivo sotto le stelle del Gargano"
       }
     ]
   }
