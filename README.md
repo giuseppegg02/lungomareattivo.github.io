@@ -21,3 +21,7 @@ Sito GitHub Pages per il progetto **Lungomare Attivo**. Include un questionario 
 ## Personalizzazione
 
 Per sostituire i video YouTube, modifica l'oggetto `LEVELS` in `script.js` aggiornando gli URL e i titoli dei video.
+
+## Link diretto
+
+🌐 Visita il progetto online: [Lungomare Attivo - Il Giro delle Onde](https://giuseppegg02.github.io/lungomareattivo.github.io/)
