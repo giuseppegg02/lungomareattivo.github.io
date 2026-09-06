@@ -1,0 +1,12 @@
+{
+  "name": "Lungomare Attivo",
+  "short_name": "Lungomare Attivo",
+  "description": "Allenati all'aperto sul lungomare di Siponto.",
+  "lang": "it",
+  "start_url": "./index.html#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f1e9",
+  "theme_color": "#073b4c",
+  "icons": []
+}

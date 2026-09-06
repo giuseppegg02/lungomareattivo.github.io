@@ -1,27 +1,33 @@
-# Lungomare Attivo - Il Giro delle Onde
+# Lungomare Attivo - Siponto
 
-Sito GitHub Pages per il progetto **Lungomare Attivo**. Include un questionario interattivo per valutare il livello di preparazione sportiva con 3 livelli e video YouTube consigliati.
+Web app fitness mobile-first per allenarsi all'aperto sul lungomare di Siponto. Il progetto resta completamente statico e compatibile con GitHub Pages.
+
+## Funzionalita
+
+- Home operativa con percorsi START, ACTIVE, PRO e Lungomare per tutti.
+- Workout player con progress bar, timer, recupero tra circuiti e avanzamento manuale per le ripetizioni.
+- Libreria esercizi con dati centralizzati, ricerca e filtri.
+- Sette challenge con cronometro o conteggio dei round.
+- Risultati, record, minuti totali e streak salvati in `localStorage`.
+- Navigazione hash-based compatibile con hosting statico e deep link come `#challenge/siponto-sprint`.
+- Manifest e service worker per un uso PWA con connessione debole.
+- Interfaccia responsive, tastiera-friendly e supporto `prefers-reduced-motion`.
 
 ## Struttura
 
-- `index.html` - Pagina principale con hero e questionario
-- `style.css` - Stili responsive con tema mare/spiaggia
-- `script.js` - Logica del questionario e gestione risultati
+- `index.html` - shell, metadata SEO e navigazione.
+- `script.js` - modello dati, viste, player, challenge e storage locale.
+- `style.css` - sistema visuale responsive.
+- `manifest.webmanifest`, `sw.js`, `icon.svg` - supporto PWA.
 
-## Come funziona
+## Sviluppo locale
 
-1. L'utente risponde a 5 domande sulla preparazione fisica
-2. Ogni risposta assegna da 1 a 3 punti
-3. In base al punteggio totale (5-15) viene assegnato un livello:
-   - **Principiante** (5-8 punti)
-   - **Intermedio** (9-12 punti)
-   - **Avanzato** (13-15 punti)
-4. Per ogni livello vengono mostrati 3 video YouTube consigliati
+Il sito non richiede installazione o build. Apri `index.html` direttamente oppure avvia un server statico locale, ad esempio:
 
-## Personalizzazione
+```bash
+python -m http.server 8080
+```
 
-Per sostituire i video YouTube, modifica l'oggetto `LEVELS` in `script.js` aggiornando gli URL e i titoli dei video.
+Poi visita `http://localhost:8080`.
 
-## Link diretto
-
-🌐 Visita il progetto online: [Lungomare Attivo - Il Giro delle Onde](https://giuseppegg02.github.io/lungomareattivo.github.io/)
+I progressi si possono azzerare dalla pagina **I miei risultati**. I video esterni già presenti nel progetto precedente non vengono duplicati nel player e nessun URL video nuovo viene inventato.
