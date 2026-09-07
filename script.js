@@ -74,7 +74,8 @@ function renderHome() {
   const workoutsForLevel = hasLevel ? progress.workoutsCompleted.filter(w => w.level === progress.currentLevel).length : 0;
   const canUpgrade = workoutsForLevel >= 3 && progress.currentLevel !== "pro";
   
-  app().innerHTML = `<section class="home-page page-wrap"><div class="hero-panel"><div class="eyebrow">SIPONTO · PUGLIA</div><h1>Muoviti.<br><em>Allenati.</em><br>Divertiti.</h1><p>Il tuo allenamento all'aperto, direttamente sul lungomare di Siponto.</p><div class="hero-actions">${hasLevel ? button(`Inizia allenamento ${workout.label} →`, `start-level:${progress.currentLevel}`, "button button-primary") : button("Inizia allenamento →", "choose-level", "button button-primary")}${button("Esplora esercizi", "exercises", "button button-ghost")}</div>${hasLevel ? `<div class="current-level-info"><span class="eyebrow">IL TUO LIVELLO</span><strong>${workout.label}</strong><small>${workout.subtitle}</small>${canUpgrade ? `<button class="upgrade-btn" data-action="upgrade-level">Passa a ${WORKOUTS[getNextLevel(progress.currentLevel)].label} →</button>` : `<span class="workouts-count">${workoutsForLevel} ${workoutsForLevel === 1 ? "allenamento" : "allenamenti"} completati</span>`}</div>` : ""}<div class="hero-stats"><span><strong>${completed}</strong> allenamenti</span><span><strong>${progress.streak.current}</strong> giorni di streak</span></div></div><section class="callout"><span class="callout-icon">♨</span><div><span class="eyebrow">PRIMA DI INIZIARE</span><h3>Ascolta il tuo corpo.</h3><p>Muoviti gradualmente e interrompi l'attività in caso di dolore, vertigini o malessere.</p></div><a href="#before">Leggi</a></section></section>${footer()}`;
+  app().innerHTML = `<section class="home-page page-wrap"><div class="hero-panel"><div class="eyebrow">SIPONTO · PUGLIA</div><h1>Muoviti.<br><em>Allenati.</em><br>Divertiti.</h1><p>Il tuo allenamento all'aperto, direttamente sul lungomare di Siponto.</p><div class="hero-actions">${hasLevel ? button(`Inizia allenamento ${workout.label} →`, `start-level:${progress.currentLevel}`, "button button-primary") : button("Inizia allenamento →", "choose-level", "button button-primary")}${button("Esplora esercizi", "exercises", "button button-ghost")}</div>${hasLevel ? `<div class="current-level-info"><span class="eyebrow">IL TUO LIVELLO</span><strong>${workout.label}</strong><small>${workout.subtitle}</small>${canUpgrade ? `<button class="upgrade-btn" data-action="upgrade-level">Passa a ${WORKOUTS[getNextLevel(progress.currentLevel)].label} →</button>` : `<span class="workouts-count">${workoutsForLevel} ${workoutsForLevel === 1 ? "allenamento" : "allenamenti"} completati</span>`}</div>` : ""}<div class="hero-stats"><span><strong data-counter="${completed}">${completed}</strong> allenamenti</span><span><strong data-counter="${progress.streak.current}">${progress.streak.current}</strong> giorni di streak</span></div><svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"/></svg></div><section class="callout"><span class="callout-icon">♨</span><div><span class="eyebrow">PRIMA DI INIZIARE</span><h3>Ascolta il tuo corpo.</h3><p>Muoviti gradualmente e interrompi l'attività in caso di dolore, vertigini o malessere.</p></div><a href="#before">Leggi</a></section></section>${footer()}`;
+  animateCounters();
 }
 
 function getNextLevel(current) {
@@ -122,7 +123,18 @@ function renderChallenges() {
 function renderResults() {
   setTitle("I miei risultati");
   const hasData = progress.workoutsCompleted.length || progress.challengesCompleted.length;
-  app().innerHTML = `<section class="page-wrap results-page"><div class="page-intro compact"><span class="eyebrow">IL MIO PERCORSO</span><h1>Ogni passo<br><em>conta.</em></h1><p>La tua attività resta sul tuo dispositivo.</p></div>${hasData ? `<div class="metrics"><div><strong>${progress.workoutsCompleted.length}</strong><span>Allenamenti</span></div><div><strong>${progress.totalMinutes}</strong><span>Minuti totali</span></div><div><strong>${progress.challengesCompleted.length}</strong><span>Sfide</span></div><div><strong>${progress.streak.current}</strong><span>Giorni streak</span></div></div><section class="result-section"><span class="eyebrow">RECORD</span><h2>Le tue sfide</h2><div class="record-list">${Object.entries(progress.personalRecords).map(([id, value]) => `<div><span>${CHALLENGES[id]?.title || id}</span><strong>${typeof value === "number" ? formatTime(value) : value + " round"}</strong></div>`).join("") || `<p class="empty-state">Completa una sfida per vedere qui il tuo record.</p>`}</div></section>` : `<div class="empty-results"><span>◎</span><h2>Il tuo percorso<br>inizia qui.</h2><p>Non hai ancora completato un allenamento.</p>${button("Inizia il tuo primo allenamento →", "choose-level", "button button-primary")}</div>`}<button class="reset-link" type="button" data-action="reset-data">Azzera i miei dati</button></section>${footer()}`;
+  const maxWorkouts = 50;
+  const maxMinutes = 500;
+  const maxChallenges = 20;
+  const maxStreak = 30;
+  function ring(value, max, label) {
+    const r = 34, c = 2 * Math.PI * r;
+    const pct = Math.min(value / max, 1);
+    const offset = c * (1 - pct);
+    return `<div style="text-align:center"><svg class="progress-ring" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="${r}" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="6"/><circle class="progress-ring__circle" cx="40" cy="40" r="${r}" stroke="var(--sun)" stroke-width="6" stroke-dasharray="${c}" stroke-dashoffset="${c}" data-target="${offset}"/></svg><strong data-counter="${value}">${value}</strong><span>${label}</span></div>`;
+  }
+  app().innerHTML = `<section class="page-wrap results-page"><div class="page-intro compact"><span class="eyebrow">IL MIO PERCORSO</span><h1>Ogni passo<br><em>conta.</em></h1><p>La tua attività resta sul tuo dispositivo.</p></div>${hasData ? `<div class="metrics">${ring(progress.workoutsCompleted.length, maxWorkouts, "Allenamenti")}${ring(progress.totalMinutes, maxMinutes, "Minuti totali")}${ring(progress.challengesCompleted.length, maxChallenges, "Sfide")}${ring(progress.streak.current, maxStreak, "Giorni streak")}</div><section class="result-section results-section"><span class="eyebrow">RECORD</span><h2>Le tue sfide</h2><div class="record-list">${Object.entries(progress.personalRecords).map(([id, value]) => `<div><span>${CHALLENGES[id]?.title || id}</span><strong>${typeof value === "number" ? formatTime(value) : value + " round"}</strong></div>`).join("") || `<p class="empty-state">Completa una sfida per vedere qui il tuo record.</p>`}</div></section>` : `<div class="empty-results"><span>◎</span><h2>Il tuo percorso<br>inizia qui.</h2><p>Non hai ancora completato un allenamento.</p>${button("Inizia il tuo primo allenamento →", "choose-level", "button button-primary")}</div>`}<button class="reset-link" type="button" data-action="reset-data">Azzera i miei dati</button></section>${footer()}`;
+  if (hasData) { animateCounters(); animateRings(); fireConfetti(); }
 }
 
 function renderBefore() { app().innerHTML = `<section class="page-wrap info-page"><div class="page-intro compact"><span class="eyebrow">PRIMA DI INIZIARE</span><h1>Muoviti con<br><em>consapevolezza.</em></h1></div><div class="notice"><h2>Il tuo corpo decide il ritmo.</h2><p>L'attività fisica deve essere svolta gradualmente e nel rispetto delle proprie capacità. Scegli il livello adeguato e adatta i movimenti quando necessario.</p><h3>Interrompi l'attività in caso di:</h3><ul><li>dolore</li><li>vertigini</li><li>difficoltà respiratoria</li><li>malessere</li></ul><p>In presenza di condizioni particolari o limitazioni funzionali, segui le indicazioni del tuo professionista sanitario.</p></div>${button("Scegli il tuo allenamento →", "choose-level", "button button-primary")}</section>${footer()}`; }
@@ -314,6 +326,46 @@ function updateStreak() { const last = progress.streak.lastDate; const current =
 function startChallenge(id) { const challenge = CHALLENGES[id]; app().innerHTML = `<section class="player-page challenge-player"><div class="player-top"><a href="#challenges">← Esci</a><span>${challenge.title}</span></div><div class="player-content"><span class="eyebrow">${challenge.duration}</span><h1>${challenge.title}</h1><p>${challenge.description}</p><div class="timer-display" id="challenge-timer">00:00</div><strong class="prescription">${challenge.type === "stopwatch" ? "CRONOMETRO" : "CONTA I TUOI ROUND"}</strong><div class="challenge-steps">${challenge.steps.map((step, index) => `<span><b>${index + 1}</b>${step}</span>`).join("")}</div>${button("Avvia", `run-challenge:${id}`, "button button-primary button-large")}<div id="challenge-finish"></div></div></section>`; window.challengeState = { id, seconds: 0, rounds: 0, running: false }; }
 function runChallenge(id) { const state = window.challengeState; state.running = !state.running; if (state.running) { document.querySelector(`[data-action="run-challenge:${id}"]`).textContent = "Ferma"; timerId = setInterval(() => { state.seconds += 1; const display = document.getElementById("challenge-timer"); if (display) display.textContent = formatTime(state.seconds); }, 1000); } else { finishChallenge(id); } }
 function finishChallenge(id) { clearInterval(timerId); const state = window.challengeState; const challenge = CHALLENGES[id]; const value = challenge.type === "stopwatch" ? state.seconds : Math.max(1, Math.floor(state.seconds / 60)); progress.challengesCompleted.push({ id, date: today() }); if (!progress.personalRecords[id] || value < progress.personalRecords[id]) progress.personalRecords[id] = value; saveProgress(); document.getElementById("challenge-finish").innerHTML = `<div class="finish-box"><span>🏆 COMPLETATO</span><strong>${challenge.type === "stopwatch" ? formatTime(value) : `${value} round`}</strong><a href="#results">Vedi i risultati →</a></div>`; }
+
+function animateCounters() {
+  document.querySelectorAll("[data-counter]").forEach((el) => {
+    const target = parseInt(el.dataset.counter) || 0;
+    if (target === 0) return;
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * ease);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+function animateRings() {
+  document.querySelectorAll(".progress-ring__circle").forEach((circle) => {
+    const target = circle.getAttribute("data-target");
+    requestAnimationFrame(() => { circle.setAttribute("stroke-dashoffset", target); });
+  });
+}
+
+function fireConfetti() {
+  const colors = ["#f4b942", "#ef6f61", "#1b9aaa", "#5c946e", "#fffdf8"];
+  for (let i = 0; i < 24; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (1.8 + Math.random() * 1.5) + "s";
+    piece.style.animationDelay = (Math.random() * 0.6) + "s";
+    piece.style.width = (6 + Math.random() * 8) + "px";
+    piece.style.height = (6 + Math.random() * 8) + "px";
+    document.body.appendChild(piece);
+    piece.addEventListener("animationend", () => piece.remove());
+  }
+}
 
 function route() { const hash = window.location.hash.replace(/^#/, "") || "home"; const [page, id] = hash.split("/"); document.querySelectorAll("[data-nav]").forEach((link) => link.classList.toggle("active", link.dataset.nav === page)); if (page === "home") renderHome(); else if (page === "workouts") renderWorkouts(); else if (page === "exercises") renderExercises(); else if (page === "challenges") renderChallenges(); else if (page === "results") renderResults(); else if (page === "before") renderBefore(); else if (page === "choose") chooseLevel(); else if (page === "workout" && id) startWorkout(id); else if (page === "challenge" && id && CHALLENGES[id]) startChallenge(id); else renderHome(); window.scrollTo(0, 0); }
 document.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const [action, value] = target.dataset.action.split(":"); if (action === "choose-level") chooseLevel(); if (action === "exercises") navigate("#exercises"); if (action === "start-level") startWorkout(target.dataset.level || value); if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
