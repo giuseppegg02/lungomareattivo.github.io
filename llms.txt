@@ -1,0 +1,54 @@
+# Lungomare Attivo - Siponto
+
+> App fitness PWA per allenarsi all'aperto sul lungomare di Siponto, Puglia. Allenamenti guidati, libreria esercizi, sfide e tracciamento progressi. Totalmente offline, senza registrazione.
+
+## Pagine
+
+- [Home](#home): Dashboard con stats, livello corrente e CTA per iniziare
+- [Allenamenti](#workouts): 4 percorsi per livello con player integrato
+- [Esercizi](#exercises): Libreria con 21 esercizi, ricerca e filtri per categoria
+- [Sfide](#challenges): 7 sfide del lungomare con cronometro o round
+- [Risultati](#results): Progressi, record personali, streak e minuti totali
+- [Prima di iniziare](#before): Informazioni sulla sicurezza e avvisi
+- [Questionario](#choose): Test di 5 domande per determinare il livello
+
+## Allenamenti
+
+Ogni livello include 2 circuiti (tranne LUNGOMARE PER TUTTI con 1 circuito), 8 esercizi, durata 15-25 minuti.
+
+- **START** (verde): Per chi comincia. Esercizi: Marcia sul posto, Squat, Affondi alternati, Push-up facilitato, Glute bridge, Calf raise, Bird dog, Plank.
+- **ACTIVE** (giallo): Per chi ha una buona preparazione. Esercizi: Jumping jack, Squat, Affondi alternati, Push-up, Mountain climber, Superman, Plank, Squat + calf raise.
+- **PRO** (rosso): Per chi è allenato. Esercizi: Burpee, Jump squat, Push-up, Affondi alternati, Mountain climber, Plank shoulder tap, Push-up, High knees.
+- **LUNGOMARE PER TUTTI** (teal): Movimento adattato a diverse capacità. Esercizi: Marcia sul posto, Sollevamento delle ginocchia, Rotazione del busto, Tocca il cielo, Squat, Sollevamento delle ginocchia, Rotazione del busto, Tocca il cielo.
+
+## Sfide
+
+1. **Siponto Sprint**: Cronometro, circa 10 min. 500m corsa, 10 squat, 10 push-up, 20 mountain climber, 10 squat jump, 500m corsa.
+2. **Siponto Express**: Round, 5 minuti. 30" jumping jack, 10 squat, 30" recupero.
+3. **Siponto Warrior**: Round, 8-10 minuti. 10 burpees, 15 squat jump, 10 push-up, 20 mountain climber.
+4. **Siponto Duo**: Round, 5 round a persona. 10 squat, 10 push-up, 20 mountain climber. Una persona si muove, l'altra recupera.
+5. **Family Challenge**: Round, 3 round insieme. Scegli 4 esercizi, adatta il ritmo. Non conta chi arriva prima.
+6. **La sfida del mare**: Round, 2 minuti. 30" braccia, 30" ginocchia, 30" rotazioni, 30" tocca il cielo.
+7. **Insieme sul lungomare**: Round, percorso condiviso. 30" jumping jack, 10 burpees, 20 sumo squat, 20 piegamenti, 1 km corsa.
+
+## Categorie esercizi
+
+- **Cardio**: Marcia sul posto, Jumping jack, Mountain climber, Burpee, High knees
+- **Gambe**: Squat, Affondi alternati, Glute bridge, Calf raise, Squat + calf raise, Jump squat
+- **Parte superiore**: Push-up facilitato, Push-up
+- **Core**: Bird dog, Plank, Superman, Plank shoulder tap
+- **Mobilità**: Rotazione del busto, Tocca il cielo
+- **Accessibile**: Sollevamento delle ginocchia
+
+## Funzionalità
+
+- PWA con supporto offline via service worker
+- Progressi salvati in localStorage (nessun server)
+- Streak di giorni consecutivi con conteggio automatico
+- Record personali delle sfide (miglior tempo o più round)
+- Questionario di 5 domande per assegnare il livello iniziale
+- Timer integrato per esercizi a tempo con countdown
+- Video dimostrativi su YouTube per ogni esercizio
+- Navigazione hash-based compatibile con deep link
+- Interfaccia responsive mobile-first, tastiera-friendly
+- Supporto prefers-reduced-motion per accessibilità

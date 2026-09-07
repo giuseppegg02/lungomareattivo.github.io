@@ -109,10 +109,10 @@ function renderExerciseGrid() {
   const grid = document.getElementById("exercise-grid"); if (!grid) return;
   const filter = document.querySelector(".filter.active")?.dataset.filter || "all";
   const search = document.getElementById("exercise-search")?.value.toLowerCase() || "";
-  const list = EXERCISES.filter((item) => (filter === "all" || item.category === filter) && item.name.toLowerCase().includes(search));
+  const list = EXERCISES.filter((item) => (filter === "all" || item.category === filter) && (item.name.toLowerCase().includes(search) || item.objective.toLowerCase().includes(search) || item.description.toLowerCase().includes(search)));
   grid.innerHTML = list.map((item) => `<article class="exercise-card"><div class="exercise-symbol">${item.category === "cardio" ? "↗" : item.category === "legs" ? "◒" : item.category === "core" ? "◉" : "✦"}</div><div><span class="exercise-category">${item.objective}</span><h3>${item.name}</h3><p>${item.description}</p><strong>${displayPrescription(item, "active")}</strong><a class="exercise-video" href="${item.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video su YouTube</a></div></article>`).join("") || `<p class="empty-state">Nessun esercizio trovato.</p>`;
 }
-function displayPrescription(item, level) { const prescription = item.levels[level] || item.levels.start || item.levels.all; return prescription[0] === "time" ? `${prescription[1]} secondi` : `${prescription[1]} ripetizioni`; }
+function displayPrescription(item, level) { const prescription = item.levels[level] || item.levels.start || item.levels.all || item.levels.active || item.levels.pro; if (!prescription) return ""; return prescription[0] === "time" ? `${prescription[1]} secondi` : `${prescription[1]} ripetizioni`; }
 
 function renderChallenges() {
   setTitle("Sfide del lungomare");
@@ -267,8 +267,30 @@ function chooseLevel() {
     else if (total >= 8) level = "active";
     progress.currentLevel = level;
     saveProgress();
-    startWorkout(level);
+    showLevelResult(level);
   });
+}
+
+function showLevelResult(level) {
+  const workout = WORKOUTS[level];
+  app().innerHTML = `
+    <section class="page-wrap questionario-section">
+      <div class="section-header">
+        <span class="eyebrow">RISULTATO</span>
+        <h1>Il tuo livello è<br><em>${workout.label}</em></h1>
+        <p>${workout.subtitle}</p>
+      </div>
+      <div class="level-result-card ${workout.color}">
+        <span class="level-icon">${workout.icon}</span>
+        <strong>${workout.label}</strong>
+        <small>${workout.exercises.length} esercizi · ${workout.rounds} ${workout.rounds === 1 ? "circuito" : "circuits"} · 15–25 min</small>
+      </div>
+      <button class="btn-submit" data-action="start-level:${level}">
+        <span>Inizia allenamento</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </section>
+  `;
 }
 
 function startWorkout(level) {
