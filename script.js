@@ -150,18 +150,18 @@ function chooseLevel() {
     <section class="page-wrap questionario-section">
       <div class="section-header">
         <span class="eyebrow">PASSO 01 · SCEGLI</span>
-        <h1>Questionario Preparazione<br><em>Sportiva</em></h1>
-        <p>Rispondi a 5 domande per scoprire il tuo livello e ricevere gli allenamenti consigliati per il Giro delle Onde</p>
+        <h1>🌊 CHE LIVELLO SEI?</h1>
+        <p>Rispondi alle 8 domande e scopri quale percorso Lungomare Attivo è più adatto a te.<br><small>Non esistono risposte giuste o sbagliate: scegli quella che descrive meglio la tua situazione.</small></p>
       </div>
       <form id="quiz-form">
         <div class="question-card" data-question="1">
-          <span class="question-number">1 / 5</span>
+          <span class="question-number">1 / 8</span>
           <h3>Quanto spesso fai attività fisica?</h3>
           <div class="options">
             <label class="option-label">
               <input type="radio" name="q1" value="1" required>
               <span class="option-check"></span>
-              <span class="option-text">Raramente o mai</span>
+              <span class="option-text">Raramente o quasi mai</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q1" value="2">
@@ -176,86 +176,149 @@ function chooseLevel() {
           </div>
         </div>
         <div class="question-card" data-question="2">
-          <span class="question-number">2 / 5</span>
-          <h3>Riesci a correre per 30 minuti senza fermarti?</h3>
+          <span class="question-number">2 / 8</span>
+          <h3>Quando fai attività fisica per 20-30 minuti, come ti senti?</h3>
           <div class="options">
             <label class="option-label">
               <input type="radio" name="q2" value="1" required>
               <span class="option-check"></span>
-              <span class="option-text">No, mi fermo dopo pochi minuti</span>
+              <span class="option-text">Mi stanco facilmente e ho bisogno di diverse pause</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q2" value="2">
               <span class="option-check"></span>
-              <span class="option-text">Riesco con qualche difficoltà</span>
+              <span class="option-text">Riesco a continuare, facendo qualche pausa</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q2" value="3">
               <span class="option-check"></span>
-              <span class="option-text">Sì, senza problemi</span>
+              <span class="option-text">Riesco a mantenere un buon ritmo quasi senza fermarmi</span>
             </label>
           </div>
         </div>
         <div class="question-card" data-question="3">
-          <span class="question-number">3 / 5</span>
-          <h3>Pratichi regolarmente uno sport?</h3>
+          <span class="question-number">3 / 8</span>
+          <h3>Come ti senti durante un'attività che ti fa aumentare il battito e il respiro?</h3>
           <div class="options">
             <label class="option-label">
               <input type="radio" name="q3" value="1" required>
               <span class="option-check"></span>
-              <span class="option-text">No, non pratico sport</span>
+              <span class="option-text">Preferisco mantenere un ritmo tranquillo</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q3" value="2">
               <span class="option-check"></span>
-              <span class="option-text">Sì, occasionalmente</span>
+              <span class="option-text">Riesco a sostenere un ritmo moderato</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q3" value="3">
               <span class="option-check"></span>
-              <span class="option-text">Sì, in modo agonistico o strutturato</span>
+              <span class="option-text">Riesco a sostenere anche un ritmo intenso</span>
             </label>
           </div>
         </div>
         <div class="question-card" data-question="4">
-          <span class="question-number">4 / 5</span>
-          <h3>Come valuti la tua flessibilità?</h3>
+          <span class="question-number">4 / 8</span>
+          <h3>Come valuti la tua forza fisica?</h3>
           <div class="options">
             <label class="option-label">
               <input type="radio" name="q4" value="1" required>
               <span class="option-check"></span>
-              <span class="option-text">Scarsa, faccio fatica a piegarmi</span>
+              <span class="option-text">Sto ancora costruendo una buona base</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q4" value="2">
               <span class="option-check"></span>
-              <span class="option-text">Discreta, mi alleno ogni tanto</span>
+              <span class="option-text">Mi considero abbastanza forte</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q4" value="3">
               <span class="option-check"></span>
-              <span class="option-text">Buona, faccio stretching regolarmente</span>
+              <span class="option-text">Mi considero molto allenato/a e abituato/a a sforzi importanti</span>
             </label>
           </div>
         </div>
         <div class="question-card" data-question="5">
-          <span class="question-number">5 / 5</span>
-          <h3>Hai mai fatto allenamento in spiaggia o sulla sabbia?</h3>
+          <span class="question-number">5 / 8</span>
+          <h3>Quanto riesci a mantenere un'attività fisica continua senza fermarti?</h3>
           <div class="options">
             <label class="option-label">
               <input type="radio" name="q5" value="1" required>
               <span class="option-check"></span>
-              <span class="option-text">Mai</span>
+              <span class="option-text">Poco, ho bisogno di recuperare spesso</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q5" value="2">
               <span class="option-check"></span>
-              <span class="option-text">Qualche volta</span>
+              <span class="option-text">Abbastanza, riesco a mantenere un ritmo costante</span>
             </label>
             <label class="option-label">
               <input type="radio" name="q5" value="3">
               <span class="option-check"></span>
-              <span class="option-text">Sì, lo faccio spesso</span>
+              <span class="option-text">Molto, riesco a mantenere lo sforzo a lungo</span>
+            </label>
+          </div>
+        </div>
+        <div class="question-card" data-question="6">
+          <span class="question-number">6 / 8</span>
+          <h3>Come reagisci quando l'attività diventa più impegnativa?</h3>
+          <div class="options">
+            <label class="option-label">
+              <input type="radio" name="q6" value="1" required>
+              <span class="option-check"></span>
+              <span class="option-text">Preferisco rallentare o fermarmi</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q6" value="2">
+              <span class="option-check"></span>
+              <span class="option-text">Rallento un po', ma riesco a continuare</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q6" value="3">
+              <span class="option-check"></span>
+              <span class="option-text">Riesco ad aumentare l'intensità e continuare</span>
+            </label>
+          </div>
+        </div>
+        <div class="question-card" data-question="7">
+          <span class="question-number">7 / 8</span>
+          <h3>Come ti trovi nelle attività che richiedono movimenti dinamici e un ritmo sostenuto?</h3>
+          <div class="options">
+            <label class="option-label">
+              <input type="radio" name="q7" value="1" required>
+              <span class="option-check"></span>
+              <span class="option-text">Preferisco movimenti semplici e controllati</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q7" value="2">
+              <span class="option-check"></span>
+              <span class="option-text">Riesco a sostenere un ritmo abbastanza dinamico</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q7" value="3">
+              <span class="option-check"></span>
+              <span class="option-text">Mi trovo bene anche con attività molto dinamiche e intense</span>
+            </label>
+          </div>
+        </div>
+        <div class="question-card" data-question="8">
+          <span class="question-number">8 / 8</span>
+          <h3>Quale frase ti rappresenta meglio?</h3>
+          <div class="options">
+            <label class="option-label">
+              <input type="radio" name="q8" value="1" required>
+              <span class="option-check"></span>
+              <span class="option-text">Voglio muovermi e ripartire dalle basi.</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q8" value="2">
+              <span class="option-check"></span>
+              <span class="option-text">Mi alleno già e voglio mettermi alla prova.</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q8" value="3">
+              <span class="option-check"></span>
+              <span class="option-text">Sono allenato/a e cerco una vera sfida.</span>
             </label>
           </div>
         </div>
@@ -264,6 +327,7 @@ function chooseLevel() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       </form>
+      <p class="disclaimer">«Il risultato è indicativo e serve ad aiutarti a scegliere il percorso più adatto alle tue capacità. Non rappresenta una valutazione medica o una prova agonistica.»</p>
     </section>
   `;
   
@@ -271,12 +335,12 @@ function chooseLevel() {
     e.preventDefault();
     const formData = new FormData(e.target);
     let total = 0;
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 8; i++) {
       total += parseInt(formData.get(`q${i}`) || "0");
     }
     let level = "start";
-    if (total >= 12) level = "pro";
-    else if (total >= 8) level = "active";
+    if (total >= 19) level = "pro";
+    else if (total >= 13) level = "active";
     progress.currentLevel = level;
     saveProgress();
     showLevelResult(level);

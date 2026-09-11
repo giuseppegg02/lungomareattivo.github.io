@@ -10,7 +10,7 @@
 - [Sfide](#challenges): 7 sfide del lungomare con cronometro o round
 - [Risultati](#results): Progressi, record personali, streak e minuti totali
 - [Prima di iniziare](#before): Informazioni sulla sicurezza e avvisi
-- [Questionario](#choose): Test di 5 domande per determinare il livello
+- [Questionario](#choose): Test di 8 domande per determinare il livello
 
 ## Allenamenti
 
@@ -46,7 +46,7 @@ Ogni livello include 2 circuiti (tranne LUNGOMARE PER TUTTI con 1 circuito), 8 e
 - Progressi salvati in localStorage (nessun server)
 - Streak di giorni consecutivi con conteggio automatico
 - Record personali delle sfide (miglior tempo o più round)
-- Questionario di 5 domande per assegnare il livello iniziale
+- Questionario di 8 domande per assegnare il livello iniziale
 - Timer integrato per esercizi a tempo con countdown
 - Video dimostrativi su YouTube per ogni esercizio
 - Navigazione hash-based compatibile con deep link
