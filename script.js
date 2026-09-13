@@ -1,13 +1,13 @@
 const EXERCISES = [
   { id: "march", name: "Marcia sul posto", category: "cardio", description: "Attivazione generale e aumento graduale della frequenza cardiaca.", objective: "Cardio dolce", levels: { start: ["time", 40], active: ["time", 30], pro: ["time", 40], all: ["time", 45] } },
-  { id: "squat", name: "Squat", category: "legs", description: "Scendi con controllo mantenendo il petto aperto.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/iGKMsgCLTVI", levels: { start: ["reps", 10], active: ["reps", 15], pro: ["reps", 20], all: ["reps", 10] } },
-  { id: "lunges", name: "Affondi alternati", category: "legs", description: "Passo indietro, ginocchio morbido e spinta dal piede anteriore.", objective: "Gambe ed equilibrio", levels: { start: ["reps", 8], active: ["reps", 10], pro: ["reps", 10], all: ["reps", 8] } },
-  { id: "incline-pushup", name: "Push-up facilitato", category: "upper", description: "Usa un supporto stabile e mantieni il corpo allineato.", objective: "Petto, spalle e braccia", levels: { start: ["reps", 8], all: ["reps", 8] } },
+  { id: "squat", name: "Squat", category: "legs", description: "Scendi con controllo mantenendo il petto aperto.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/H9qn-Qgvtjg", levels: { start: ["reps", 10], active: ["reps", 15], pro: ["reps", 20], all: ["reps", 10] } },
+  { id: "lunges", name: "Affondi alternati", category: "legs", description: "Passo indietro, ginocchio morbido e spinta dal piede anteriore.", objective: "Gambe ed equilibrio", video: "https://www.youtube.com/shorts/aWXa7dck36Y", levels: { start: ["reps", 8], active: ["reps", 10], pro: ["reps", 10], all: ["reps", 8] } },
+  { id: "incline-pushup", name: "Push-up facilitato", category: "upper", description: "Usa un supporto stabile e mantieni il corpo allineato.", objective: "Petto, spalle e braccia", video: "https://www.youtube.com/shorts/0ViLOCJ2a54", levels: { start: ["reps", 8], all: ["reps", 8] } },
   { id: "pushup", name: "Push-up", category: "upper", description: "Corpo in linea, mani sotto le spalle, movimento controllato.", objective: "Parte superiore", levels: { active: ["reps", 10], pro: ["reps", 15] } },
-  { id: "bridge", name: "Glute bridge", category: "legs", description: "Spingi il bacino verso l'alto senza inarcare la schiena.", objective: "Glutei e catena posteriore", levels: { start: ["reps", 12] } },
-  { id: "calf", name: "Calf raise", category: "legs", description: "Sali sulle punte e scendi lentamente mantenendo l'equilibrio.", objective: "Polpacci e caviglie", levels: { start: ["reps", 15] } },
-  { id: "bird-dog", name: "Bird dog", category: "core", description: "Allunga braccio e gamba opposti mantenendo il busto stabile.", objective: "Core e coordinazione", levels: { start: ["reps", 8] } },
-  { id: "plank", name: "Plank", category: "core", description: "Spingi il pavimento e respira mantenendo il tronco solido.", objective: "Addome e stabilità", levels: { start: ["time", 20], active: ["time", 30], pro: ["time", 40], all: ["time", 20] } },
+  { id: "bridge", name: "Glute bridge", category: "legs", description: "Spingi il bacino verso l'alto senza inarcare la schiena.", objective: "Glutei e catena posteriore", video: "https://www.youtube.com/shorts/vQRzktZJjiM", levels: { start: ["reps", 12] } },
+  { id: "calf", name: "Calf raise", category: "legs", description: "Sali sulle punte e scendi lentamente mantenendo l'equilibrio.", objective: "Polpacci e caviglie", video: "https://www.youtube.com/shorts/KPsNJGVi3wE", levels: { start: ["reps", 15] } },
+  { id: "bird-dog", name: "Bird dog", category: "core", description: "Allunga braccio e gamba opposti mantenendo il busto stabile.", objective: "Core e coordinazione", video: "https://www.youtube.com/shorts/uBNLGD99U84", levels: { start: ["reps", 8] } },
+  { id: "plank", name: "Plank", category: "core", description: "Spingi il pavimento e respira mantenendo il tronco solido.", objective: "Addome e stabilità", video: "https://www.youtube.com/shorts/FcG354Z6fa4", levels: { start: ["time", 20], active: ["time", 30], pro: ["time", 40], all: ["time", 20] } },
   { id: "jumping-jack", name: "Jumping jack", category: "cardio", description: "Apri e chiudi gambe e braccia a ritmo regolare.", objective: "Cardio e coordinazione", levels: { active: ["time", 30], pro: ["time", 40] } },
   { id: "mountain", name: "Mountain climber", category: "cardio", description: "Porta le ginocchia al petto mantenendo le spalle forti.", objective: "Cardio e core", levels: { active: ["reps", 20], pro: ["reps", 30] } },
   { id: "superman", name: "Superman", category: "core", description: "Sollevamento leggero di braccia e gambe, senza forzare il collo.", objective: "Schiena e controllo", levels: { active: ["reps", 12] } },
@@ -26,6 +26,8 @@ EXERCISES.forEach((item) => {
     item.video = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${item.name} esercizio fitness`)}`;
   }
 });
+
+const WARMUP = { duration: 360, video: "https://youtu.be/UV-DM04xihk?si=whrdOOcsLbHhzpEN", label: "Riscaldamento", description: "5-7 minuti di mobilità articolare e attivazione graduale per preparare il corpo all'allenamento." };
 
 const WORKOUTS = {
   start: { label: "START", icon: "●", color: "green", subtitle: "Per chi comincia", rounds: 2, exercises: ["march", "squat", "lunges", "incline-pushup", "bridge", "calf", "bird-dog", "plank"] },
@@ -374,11 +376,43 @@ function startWorkout(level) {
     chooseLevel();
     return;
   }
-  activeWorkout = { level, index: 0, round: 1, phase: "ready", seconds: 0 };
+  activeWorkout = { level, index: 0, round: 1, phase: "warmup", seconds: WARMUP.duration };
+  renderWorkout();
+}
+function runWarmup() {
+  activeWorkout.phase = "warmup-running";
+  renderWorkout();
+  timerId = setInterval(() => {
+    activeWorkout.seconds -= 1;
+    if (activeWorkout.seconds <= 0) {
+      clearInterval(timerId);
+      activeWorkout.phase = "ready";
+      activeWorkout.seconds = 0;
+      renderWorkout();
+    } else {
+      const display = document.querySelector(".timer-display");
+      if (display) display.textContent = formatTime(activeWorkout.seconds);
+      const progress = document.querySelector(".player-progress i");
+      if (progress) progress.style.width = ((1 - activeWorkout.seconds / WARMUP.duration) * 100) + "%";
+    }
+  }, 1000);
+}
+function pauseWarmup() {
+  clearInterval(timerId);
+  activeWorkout.phase = "warmup";
   renderWorkout();
 }
 function renderWorkout() {
-  clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level]; const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.levels[activeWorkout.level] || item.levels.all || item.levels.start; const isTime = prescription[0] === "time";
+  clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level];
+  if (activeWorkout.phase === "warmup") {
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:0%"></i></div></div><div class="player-content"><span class="eyebrow">PRIMA DI INIZIARE</span><h1>${WARMUP.label}</h1><p>${WARMUP.description}</p><a class="exercise-video player-video" href="${WARMUP.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video guida su YouTube</a><div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Avvia riscaldamento", "run-warmup", "button button-primary button-large")}</div></section>`;
+    return;
+  }
+  if (activeWorkout.phase === "warmup-running") {
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:${((1 - activeWorkout.seconds / WARMUP.duration) * 100)}%"></i></div></div><div class="player-content"><span class="eyebrow">RISCALDAMENTO</span><h1>${WARMUP.label}</h1><p>Segui il video e mantieni un ritmo confortevole.</p><a class="exercise-video player-video" href="${WARMUP.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video guida su YouTube</a><div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Pausa", "pause-warmup", "button button-ghost button-large")}</div></section>`;
+    return;
+  }
+  const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.levels[activeWorkout.level] || item.levels.all || item.levels.start; const isTime = prescription[0] === "time";
   app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label} ${activeWorkout.round}/${workout.rounds}</span></div><div class="player-progress"><span>ESERCIZIO ${activeWorkout.index + 1} / ${workout.exercises.length}</span><div><i style="width:${((activeWorkout.index + 1) / workout.exercises.length) * 100}%"></i></div></div><div class="player-content"><span class="eyebrow">${activeWorkout.phase === "done" ? "COMPLETATO" : activeWorkout.phase === "rest" ? "RECUPERO" : activeWorkout.phase === "running" ? "MUOVITI" : "PRONTO?"}</span><h1>${activeWorkout.phase === "rest" ? "Respira." : item.name}</h1><p>${activeWorkout.phase === "rest" ? "Recupera e preparati al prossimo round." : item.description}</p>${activeWorkout.phase !== "rest" ? `<a class="exercise-video player-video" href="${item.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda la dimostrazione su YouTube</a>` : ""}<div class="timer-display">${activeWorkout.phase === "ready" ? (isTime ? formatTime(prescription[1]) : prescription[1]) : activeWorkout.phase === "done" ? "COMPLETATO" : formatTime(activeWorkout.seconds)}</div><strong class="prescription">${activeWorkout.phase === "rest" ? "PROSSIMO ROUND" : isTime ? "SECONDI" : `${prescription[1]} RIPETIZIONI`}</strong>${activeWorkout.phase === "ready" ? button("Inizia", "run-exercise", "button button-primary button-large") : activeWorkout.phase === "rest" ? button("Continua", "next-round", "button button-primary button-large") : activeWorkout.phase === "done" ? button("Salva allenamento", "complete-workout", "button button-primary button-large") : isTime ? button("Pausa", "pause-exercise", "button button-ghost button-large") : button("Completa esercizio", "complete-exercise", "button button-primary button-large")}${activeWorkout.phase === "ready" ? `<button class="skip-link" type="button" data-action="skip-exercise">Salta esercizio</button>` : ""}</div></section>`;
 }
 function runExercise() { const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.levels[activeWorkout.level] || item.levels.all || item.levels.start; activeWorkout.phase = "running"; activeWorkout.seconds = prescription[0] === "time" ? prescription[1] : 0; renderWorkout(); timerId = setInterval(() => { if (prescription[0] !== "time") return; activeWorkout.seconds -= 1; if (activeWorkout.seconds <= 0) { clearInterval(timerId); nextExercise(); } else { const display = document.querySelector(".timer-display"); if (display) display.textContent = formatTime(activeWorkout.seconds); } }, 1000); }
@@ -432,7 +466,12 @@ function fireConfetti() {
 }
 
 function route() { const hash = window.location.hash.replace(/^#/, "") || "home"; const [page, id] = hash.split("/"); document.querySelectorAll("[data-nav]").forEach((link) => link.classList.toggle("active", link.dataset.nav === page)); if (page === "home") renderHome(); else if (page === "workouts") renderWorkouts(); else if (page === "exercises") renderExercises(); else if (page === "challenges") renderChallenges(); else if (page === "results") renderResults(); else if (page === "before") renderBefore(); else if (page === "choose") chooseLevel(); else if (page === "workout" && id) startWorkout(id); else if (page === "challenge" && id && CHALLENGES[id]) startChallenge(id); else renderHome(); window.scrollTo(0, 0); }
-document.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const [action, value] = target.dataset.action.split(":"); if (action === "choose-level") chooseLevel(); if (action === "exercises") navigate("#exercises"); if (action === "start-level") startWorkout(target.dataset.level || value); if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
+document.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const [action, value] = target.dataset.action.split(":");   if (action === "choose-level") chooseLevel();
+  if (action === "exercises") navigate("#exercises");
+  if (action === "start-level") startWorkout(target.dataset.level || value);
+  if (action === "run-warmup") runWarmup();
+  if (action === "pause-warmup") pauseWarmup();
+  if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
 document.addEventListener("input", (event) => { if (event.target.id === "exercise-search") renderExerciseGrid(); });
 document.addEventListener("click", (event) => { const filter = event.target.closest("[data-filter]"); if (!filter) return; document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active")); filter.classList.add("active"); renderExerciseGrid(); });
 window.addEventListener("hashchange", route);
