@@ -1,24 +1,30 @@
 const EXERCISES = [
-  { id: "march", name: "Marcia sul posto", category: "cardio", description: "Attivazione generale e aumento graduale della frequenza cardiaca.", objective: "Cardio dolce", levels: { start: ["time", 40], active: ["time", 30], pro: ["time", 40], all: ["time", 45] } },
-  { id: "squat", name: "Squat", category: "legs", description: "Scendi con controllo mantenendo il petto aperto.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/iGKMsgCLTVI", levels: { start: ["reps", 10], active: ["reps", 15], pro: ["reps", 20], all: ["reps", 10] } },
-  { id: "lunges", name: "Affondi alternati", category: "legs", description: "Passo indietro, ginocchio morbido e spinta dal piede anteriore.", objective: "Gambe ed equilibrio", levels: { start: ["reps", 8], active: ["reps", 10], pro: ["reps", 10], all: ["reps", 8] } },
-  { id: "incline-pushup", name: "Push-up facilitato", category: "upper", description: "Usa un supporto stabile e mantieni il corpo allineato.", objective: "Petto, spalle e braccia", levels: { start: ["reps", 8], all: ["reps", 8] } },
-  { id: "pushup", name: "Push-up", category: "upper", description: "Corpo in linea, mani sotto le spalle, movimento controllato.", objective: "Parte superiore", levels: { active: ["reps", 10], pro: ["reps", 15] } },
-  { id: "bridge", name: "Glute bridge", category: "legs", description: "Spingi il bacino verso l'alto senza inarcare la schiena.", objective: "Glutei e catena posteriore", levels: { start: ["reps", 12] } },
-  { id: "calf", name: "Calf raise", category: "legs", description: "Sali sulle punte e scendi lentamente mantenendo l'equilibrio.", objective: "Polpacci e caviglie", levels: { start: ["reps", 15] } },
-  { id: "bird-dog", name: "Bird dog", category: "core", description: "Allunga braccio e gamba opposti mantenendo il busto stabile.", objective: "Core e coordinazione", levels: { start: ["reps", 8] } },
-  { id: "plank", name: "Plank", category: "core", description: "Spingi il pavimento e respira mantenendo il tronco solido.", objective: "Addome e stabilità", levels: { start: ["time", 20], active: ["time", 30], pro: ["time", 40], all: ["time", 20] } },
-  { id: "jumping-jack", name: "Jumping jack", category: "cardio", description: "Apri e chiudi gambe e braccia a ritmo regolare.", objective: "Cardio e coordinazione", levels: { active: ["time", 30], pro: ["time", 40] } },
-  { id: "mountain", name: "Mountain climber", category: "cardio", description: "Porta le ginocchia al petto mantenendo le spalle forti.", objective: "Cardio e core", levels: { active: ["reps", 20], pro: ["reps", 30] } },
-  { id: "superman", name: "Superman", category: "core", description: "Sollevamento leggero di braccia e gambe, senza forzare il collo.", objective: "Schiena e controllo", levels: { active: ["reps", 12] } },
-  { id: "squat-calf", name: "Squat + calf raise", category: "legs", description: "Unisci forza delle gambe e stabilità in un movimento fluido.", objective: "Gambe e stabilità", levels: { active: ["reps", 12] } },
-  { id: "burpee", name: "Burpee", category: "cardio", description: "Adatta il salto e il ritmo alle tue capacità.", objective: "Potenza totale", levels: { pro: ["reps", 10] } },
-  { id: "jump-squat", name: "Jump squat", category: "legs", description: "Atterra morbido e mantieni le ginocchia allineate.", objective: "Forza esplosiva", levels: { pro: ["reps", 12] } },
-  { id: "high-knees", name: "High knees", category: "cardio", description: "Corri sul posto portando le ginocchia alte e il busto stabile.", objective: "Cardio", levels: { pro: ["time", 40] } },
-  { id: "shoulder-tap", name: "Plank shoulder tap", category: "core", description: "Tocca la spalla opposta senza oscillare con il bacino.", objective: "Core e spalle", levels: { pro: ["reps", 20] } },
-  { id: "knee-lift", name: "Sollevamento delle ginocchia", category: "all", description: "Da seduti o in piedi, scegli l'ampiezza più comoda.", objective: "Movimento accessibile", levels: { all: ["time", 30] } },
-  { id: "torso", name: "Rotazione del busto", category: "mobility", description: "Ruota dolcemente seguendo il respiro.", objective: "Mobilità", levels: { all: ["time", 30] } },
-  { id: "sky", name: "Tocca il cielo", category: "mobility", description: "Allunga le braccia verso l'alto, in piedi o da seduti.", objective: "Mobilità e postura", levels: { all: ["time", 30] } }
+  { id: "march", name: "Marcia sul posto", category: "cardio", description: "Attivazione generale e aumento graduale della frequenza cardiaca.", objective: "Cardio dolce", video: "https://www.youtube.com/shorts/711I_Q5SDFo", prescription: ["time", 40] },
+  { id: "squat", name: "Squat", category: "legs", description: "Scendi con controllo mantenendo il petto aperto.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/ZQHn7HTqVlA", prescription: ["reps", 10] },
+  { id: "lunges", name: "Affondi alternati", category: "legs", description: "Passo indietro, ginocchio morbido e spinta dal piede anteriore.", objective: "Gambe ed equilibrio", video: "https://www.youtube.com/shorts/TmZ5k6jjb6I", prescription: ["reps", 8] },
+  { id: "incline-pushup", name: "Push-up facilitato", category: "upper", description: "Usa un supporto stabile e mantieni il corpo allineato.", objective: "Petto, spalle e braccia", video: "https://www.youtube.com/shorts/7o9VrQhpI04", prescription: ["reps", 8] },
+  { id: "pushup", name: "Push-up", category: "upper", description: "Corpo in linea, mani sotto le spalle, movimento controllato.", objective: "Parte superiore", prescription: ["reps", 10] },
+  { id: "close-pushup", name: "Piegamenti stretti", category: "upper", description: "Mani più strette delle spalle, gomiti vicini al corpo.", objective: "Tricipiti e petto", video: "https://www.youtube.com/shorts/6oLfCMIP5mo", prescription: ["reps", 10] },
+  { id: "pike-pushup", name: "Pike push up", category: "upper", description: "Bacino alto e corpo a V, piega le braccia portando la testa verso il pavimento.", objective: "Spalle e parte superiore", video: "https://www.youtube.com/shorts/V4WFEsrMFWY", prescription: ["reps", 10] },
+  { id: "bridge", name: "Glute bridge", category: "legs", description: "Spingi il bacino verso l'alto senza inarcare la schiena.", objective: "Glutei e catena posteriore", video: "https://www.youtube.com/shorts/vQRzktZJjiM", prescription: ["reps", 12] },
+  { id: "hip-thrust", name: "Hip thrust", category: "legs", description: "Schiena appoggiata a un rialzo, spingi il bacino verso l'alto senza iperestendere la schiena.", objective: "Glutei e catena posteriore", video: "https://www.youtube.com/shorts/th2e6mU6gAs", videoByLevel: { active: "https://www.youtube.com/shorts/hbvUBJnqWrk" }, prescription: ["reps", 12] },
+  { id: "calf", name: "Calf raise", category: "legs", description: "Sali sulle punte e scendi lentamente mantenendo l'equilibrio.", objective: "Polpacci e caviglie", video: "https://www.youtube.com/shorts/fcYyeaLEvOU", prescription: ["reps", 15] },
+  { id: "bird-dog", name: "Bird dog", category: "core", description: "Allunga braccio e gamba opposti mantenendo il busto stabile.", objective: "Core e coordinazione", video: "https://www.youtube.com/shorts/BfXj2m663k4", prescription: ["reps", 8] },
+  { id: "plank", name: "Plank", category: "core", description: "Spingi il pavimento e respira mantenendo il tronco solido.", objective: "Addome e stabilità", video: "https://www.youtube.com/shorts/FcG354Z6fa4", videoByLevel: { active: "https://www.youtube.com/shorts/uKzAL6Ry2bo" }, prescription: ["time", 20] },
+  { id: "incline-plank", name: "Plank facilitato", category: "core", description: "Avambracci su un rialzo, corpo in linea e addome attivo.", objective: "Core e stabilità", video: "https://www.youtube.com/shorts/_2c40LBvrAg", prescription: ["time", 20] },
+  { id: "jumping-jack", name: "Jumping jack", category: "cardio", description: "Apri e chiudi gambe e braccia a ritmo regolare.", objective: "Cardio e coordinazione", video: "https://www.youtube.com/shorts/bF71PI7T560", prescription: ["time", 30] },
+  { id: "mountain", name: "Mountain climber", category: "cardio", description: "Porta le ginocchia al petto mantenendo le spalle forti.", objective: "Cardio e core", video: "https://www.youtube.com/shorts/2CsLOQch6zk", prescription: ["reps", 20] },
+  { id: "superman", name: "Superman", category: "core", description: "Sollevamento leggero di braccia e gambe, senza forzare il collo.", objective: "Schiena e controllo", prescription: ["reps", 12] },
+  { id: "squat-calf", name: "Squat + calf raise", category: "legs", description: "Unisci forza delle gambe e stabilità in un movimento fluido.", objective: "Gambe e stabilità", prescription: ["reps", 12] },
+  { id: "sumo-squat", name: "Sumo squat", category: "legs", description: "Piedi larghi e punte aperte, ginocchia in linea con le punte.", objective: "Gambe e adduttori", video: "https://www.youtube.com/shorts/wzFBcDpPAAA", prescription: ["reps", 12] },
+  { id: "step-up", name: "Step up", category: "legs", description: "Sali su un gradino spingendo dal piede in appoggio, poi scendi con controllo.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/IAOTe-xgmS0", prescription: ["reps", 10] },
+  { id: "burpee", name: "Burpee", category: "cardio", description: "Adatta il salto e il ritmo alle tue capacità.", objective: "Potenza totale", prescription: ["reps", 10] },
+  { id: "jump-squat", name: "Jump squat", category: "legs", description: "Atterra morbido e mantieni le ginocchia allineate.", objective: "Forza esplosiva", video: "https://www.youtube.com/shorts/HH-gXwBoFgY", videoByLevel: { pro: "https://www.youtube.com/shorts/gzevlT-H3XE" }, prescription: ["reps", 12] },
+  { id: "high-knees", name: "Corsa sul posto ginocchia alte", category: "cardio", description: "Corri sul posto portando le ginocchia alte e il busto stabile.", objective: "Cardio", video: "https://www.youtube.com/shorts/SHuoviorSBQ", prescription: ["time", 40] },
+  { id: "shoulder-tap", name: "Plank tocco spalle", category: "core", description: "Tocca la spalla opposta senza oscillare con il bacino.", objective: "Core e spalle", video: "https://www.youtube.com/shorts/IYUW-UqfE7A", prescription: ["reps", 20] },
+  { id: "knee-lift", name: "Sollevamento delle ginocchia", category: "all", description: "Da seduti o in piedi, scegli l'ampiezza più comoda.", objective: "Movimento accessibile", prescription: ["time", 30] },
+  { id: "torso", name: "Rotazione del busto", category: "mobility", description: "Ruota dolcemente seguendo il respiro.", objective: "Mobilità", prescription: ["time", 30] },
+  { id: "sky", name: "Tocca il cielo", category: "mobility", description: "Allunga le braccia verso l'alto, in piedi o da seduti.", objective: "Mobilità e postura", prescription: ["time", 30] }
 ];
 
 EXERCISES.forEach((item) => {
@@ -27,11 +33,13 @@ EXERCISES.forEach((item) => {
   }
 });
 
+const WARMUP = { duration: 360, video: "https://www.youtube.com/shorts/qH662i7qxD0", label: "Riscaldamento", description: "5-7 minuti di mobilità articolare e attivazione graduale per preparare il corpo all'allenamento." };
+
 const WORKOUTS = {
-  start: { label: "START", icon: "●", color: "green", subtitle: "Per chi comincia", rounds: 2, exercises: ["march", "squat", "lunges", "incline-pushup", "bridge", "calf", "bird-dog", "plank"] },
-  active: { label: "ACTIVE", icon: "●", color: "yellow", subtitle: "Per chi ha già una buona preparazione", rounds: 2, exercises: ["jumping-jack", "squat", "lunges", "pushup", "mountain", "superman", "plank", "squat-calf"] },
-  pro: { label: "PRO", icon: "●", color: "red", subtitle: "Per chi è allenato", rounds: 2, exercises: ["burpee", "jump-squat", "pushup", "lunges", "mountain", "shoulder-tap", "pushup", "high-knees"] },
-  all: { label: "LUNGOMARE PER TUTTI", icon: "♿", color: "teal", subtitle: "Movimento adattato a diverse capacità", rounds: 1, exercises: ["march", "knee-lift", "torso", "sky", "squat", "knee-lift", "torso", "sky"] }
+  start: { label: "START", icon: "●", color: "green", subtitle: "Per chi comincia", rounds: 2, exercises: ["1 march", "2 squat", "3 lunges", "4 incline-pushup", "5 hip-thrust", "6 calf", "7 bird-dog", "8 incline-plank", "9 plank"] },
+  active: { label: "ACTIVE", icon: "●", color: "yellow", subtitle: "Per chi ha già una buona preparazione", rounds: 2, exercises: ["1 jumping-jack", "2 sumo-squat", "3 step-up", "4 pushup", "5 mountain", "6 hip-thrust", "7 plank", "8 jump-squat", "9 squat-calf"] },
+  pro: { label: "PRO", icon: "●", color: "red", subtitle: "Per chi è allenato", rounds: 2, exercises: ["1 burpee", "2 close-pushup", "3 jump-squat", "4 lunges", "5 mountain", "6 shoulder-tap", "7 pike-pushup", "8 high-knees"] },
+  all: { label: "LUNGOMARE PER TUTTI", icon: "♿", color: "teal", subtitle: "Movimento adattato a diverse capacità", rounds: 1, exercises: ["1 march", "2 knee-lift", "3 torso", "4 sky", "5 squat", "6 knee-lift", "7 torso", "8 sky"] }
 };
 
 const CHALLENGES = {
@@ -60,7 +68,8 @@ function saveProgress() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify
 function today() { return new Date().toISOString().slice(0, 10); }
 function formatTime(seconds) { return `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`; }
 function exercise(id) { return EXERCISES.find((item) => item.id === id); }
-function workoutItems(level) { return WORKOUTS[level].exercises.map((id) => exercise(id)); }
+function exerciseId(key) { return key.replace(/^\d+\s*/, ""); }
+function workoutItems(level) { return WORKOUTS[level].exercises.map((key) => exercise(exerciseId(key))); }
 function setTitle(title) { document.title = `${title} · Lungomare Attivo`; }
 function navigate(hash) { window.location.hash = hash; }
 function app() { return document.getElementById("app"); }
@@ -111,9 +120,10 @@ function renderExerciseGrid() {
   const filter = document.querySelector(".filter.active")?.dataset.filter || "all";
   const search = document.getElementById("exercise-search")?.value.toLowerCase() || "";
   const list = EXERCISES.filter((item) => (filter === "all" || item.category === filter) && (item.name.toLowerCase().includes(search) || item.objective.toLowerCase().includes(search) || item.description.toLowerCase().includes(search)));
-  grid.innerHTML = list.map((item) => `<article class="exercise-card"><div class="exercise-symbol">${item.category === "cardio" ? "↗" : item.category === "legs" ? "◒" : item.category === "core" ? "◉" : "✦"}</div><div><span class="exercise-category">${item.objective}</span><h3>${item.name}</h3><p>${item.description}</p><strong>${displayPrescription(item, "active")}</strong><a class="exercise-video" href="${item.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video su YouTube</a></div></article>`).join("") || `<p class="empty-state">Nessun esercizio trovato.</p>`;
+  grid.innerHTML = list.map((item) => `<article class="exercise-card"><div class="exercise-symbol">${item.category === "cardio" ? "↗" : item.category === "legs" ? "◒" : item.category === "core" ? "◉" : "✦"}</div><div><span class="exercise-category">${item.objective}</span><h3>${item.name}</h3><p>${item.description}</p><strong>${displayPrescription(item)}</strong><a class="exercise-video" href="${item.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video su YouTube</a></div></article>`).join("") || `<p class="empty-state">Nessun esercizio trovato.</p>`;
 }
-function displayPrescription(item, level) { const prescription = item.levels[level] || item.levels.start || item.levels.all || item.levels.active || item.levels.pro; if (!prescription) return ""; return prescription[0] === "time" ? `${prescription[1]} secondi` : `${prescription[1]} ripetizioni`; }
+function displayPrescription(item) { const prescription = item.prescription; if (!prescription) return ""; return prescription[0] === "time" ? `${prescription[1]} secondi` : `${prescription[1]} ripetizioni`; }
+function videoFor(item, level) { return item.videoByLevel?.[level] || item.video; }
 
 function renderChallenges() {
   setTitle("Sfide del lungomare");
@@ -374,14 +384,46 @@ function startWorkout(level) {
     chooseLevel();
     return;
   }
-  activeWorkout = { level, index: 0, round: 1, phase: "ready", seconds: 0 };
+  activeWorkout = { level, index: 0, round: 1, phase: "warmup", seconds: WARMUP.duration };
+  renderWorkout();
+}
+function runWarmup() {
+  activeWorkout.phase = "warmup-running";
+  renderWorkout();
+  timerId = setInterval(() => {
+    activeWorkout.seconds -= 1;
+    if (activeWorkout.seconds <= 0) {
+      clearInterval(timerId);
+      activeWorkout.phase = "ready";
+      activeWorkout.seconds = 0;
+      renderWorkout();
+    } else {
+      const display = document.querySelector(".timer-display");
+      if (display) display.textContent = formatTime(activeWorkout.seconds);
+      const progress = document.querySelector(".player-progress i");
+      if (progress) progress.style.width = ((1 - activeWorkout.seconds / WARMUP.duration) * 100) + "%";
+    }
+  }, 1000);
+}
+function pauseWarmup() {
+  clearInterval(timerId);
+  activeWorkout.phase = "warmup";
   renderWorkout();
 }
 function renderWorkout() {
-  clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level]; const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.levels[activeWorkout.level] || item.levels.all || item.levels.start; const isTime = prescription[0] === "time";
-  app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label} ${activeWorkout.round}/${workout.rounds}</span></div><div class="player-progress"><span>ESERCIZIO ${activeWorkout.index + 1} / ${workout.exercises.length}</span><div><i style="width:${((activeWorkout.index + 1) / workout.exercises.length) * 100}%"></i></div></div><div class="player-content"><span class="eyebrow">${activeWorkout.phase === "done" ? "COMPLETATO" : activeWorkout.phase === "rest" ? "RECUPERO" : activeWorkout.phase === "running" ? "MUOVITI" : "PRONTO?"}</span><h1>${activeWorkout.phase === "rest" ? "Respira." : item.name}</h1><p>${activeWorkout.phase === "rest" ? "Recupera e preparati al prossimo round." : item.description}</p>${activeWorkout.phase !== "rest" ? `<a class="exercise-video player-video" href="${item.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda la dimostrazione su YouTube</a>` : ""}<div class="timer-display">${activeWorkout.phase === "ready" ? (isTime ? formatTime(prescription[1]) : prescription[1]) : activeWorkout.phase === "done" ? "COMPLETATO" : formatTime(activeWorkout.seconds)}</div><strong class="prescription">${activeWorkout.phase === "rest" ? "PROSSIMO ROUND" : isTime ? "SECONDI" : `${prescription[1]} RIPETIZIONI`}</strong>${activeWorkout.phase === "ready" ? button("Inizia", "run-exercise", "button button-primary button-large") : activeWorkout.phase === "rest" ? button("Continua", "next-round", "button button-primary button-large") : activeWorkout.phase === "done" ? button("Salva allenamento", "complete-workout", "button button-primary button-large") : isTime ? button("Pausa", "pause-exercise", "button button-ghost button-large") : button("Completa esercizio", "complete-exercise", "button button-primary button-large")}${activeWorkout.phase === "ready" ? `<button class="skip-link" type="button" data-action="skip-exercise">Salta esercizio</button>` : ""}</div></section>`;
+  clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level];
+  if (activeWorkout.phase === "warmup") {
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:0%"></i></div></div><div class="player-content"><span class="eyebrow">PRIMA DI INIZIARE</span><h1>${WARMUP.label}</h1><p>${WARMUP.description}</p><a class="exercise-video player-video" href="${WARMUP.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video guida su YouTube</a><div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Avvia riscaldamento", "run-warmup", "button button-primary button-large")}</div></section>`;
+    return;
+  }
+  if (activeWorkout.phase === "warmup-running") {
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:${((1 - activeWorkout.seconds / WARMUP.duration) * 100)}%"></i></div></div><div class="player-content"><span class="eyebrow">RISCALDAMENTO</span><h1>${WARMUP.label}</h1><p>Segui il video e mantieni un ritmo confortevole.</p><a class="exercise-video player-video" href="${WARMUP.video}" target="_blank" rel="noopener noreferrer">&#9654; Guarda il video guida su YouTube</a><div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Pausa", "pause-warmup", "button button-ghost button-large")}</div></section>`;
+    return;
+  }
+  const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.prescription; const isTime = prescription[0] === "time";
+  app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label} ${activeWorkout.round}/${workout.rounds}</span></div><div class="player-progress"><span>ESERCIZIO ${activeWorkout.index + 1} / ${workout.exercises.length}</span><div><i style="width:${((activeWorkout.index + 1) / workout.exercises.length) * 100}%"></i></div></div><div class="player-content"><span class="eyebrow">${activeWorkout.phase === "done" ? "COMPLETATO" : activeWorkout.phase === "rest" ? "RECUPERO" : activeWorkout.phase === "running" ? "MUOVITI" : "PRONTO?"}</span><h1>${activeWorkout.phase === "rest" ? "Respira." : item.name}</h1><p>${activeWorkout.phase === "rest" ? "Recupera e preparati al prossimo round." : item.description}</p>${activeWorkout.phase !== "rest" ? `<a class="exercise-video player-video" href="${videoFor(item, activeWorkout.level)}" target="_blank" rel="noopener noreferrer">&#9654; Guarda la dimostrazione su YouTube</a>` : ""}<div class="timer-display">${activeWorkout.phase === "ready" ? (isTime ? formatTime(prescription[1]) : prescription[1]) : activeWorkout.phase === "done" ? "COMPLETATO" : formatTime(activeWorkout.seconds)}</div><strong class="prescription">${activeWorkout.phase === "rest" ? "PROSSIMO ROUND" : isTime ? "SECONDI" : `${prescription[1]} RIPETIZIONI`}</strong>${activeWorkout.phase === "ready" ? button("Inizia", "run-exercise", "button button-primary button-large") : activeWorkout.phase === "rest" ? button("Continua", "next-round", "button button-primary button-large") : activeWorkout.phase === "done" ? button("Salva allenamento", "complete-workout", "button button-primary button-large") : isTime ? button("Pausa", "pause-exercise", "button button-ghost button-large") : button("Completa esercizio", "complete-exercise", "button button-primary button-large")}${activeWorkout.phase === "ready" ? `<button class="skip-link" type="button" data-action="skip-exercise">Salta esercizio</button>` : ""}</div></section>`;
 }
-function runExercise() { const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.levels[activeWorkout.level] || item.levels.all || item.levels.start; activeWorkout.phase = "running"; activeWorkout.seconds = prescription[0] === "time" ? prescription[1] : 0; renderWorkout(); timerId = setInterval(() => { if (prescription[0] !== "time") return; activeWorkout.seconds -= 1; if (activeWorkout.seconds <= 0) { clearInterval(timerId); nextExercise(); } else { const display = document.querySelector(".timer-display"); if (display) display.textContent = formatTime(activeWorkout.seconds); } }, 1000); }
+function runExercise() { const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.prescription; activeWorkout.phase = "running"; activeWorkout.seconds = prescription[0] === "time" ? prescription[1] : 0; renderWorkout(); timerId = setInterval(() => { if (prescription[0] !== "time") return; activeWorkout.seconds -= 1; if (activeWorkout.seconds <= 0) { clearInterval(timerId); nextExercise(); } else { const display = document.querySelector(".timer-display"); if (display) display.textContent = formatTime(activeWorkout.seconds); } }, 1000); }
 function nextExercise() { clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level]; if (activeWorkout.index < workout.exercises.length - 1) { activeWorkout.index += 1; activeWorkout.phase = "ready"; renderWorkout(); } else if (activeWorkout.round < workout.rounds) { activeWorkout.phase = "rest"; activeWorkout.seconds = 60; renderWorkout(); } else { activeWorkout.phase = "done"; renderWorkout(); } }
 function skipExercise() { nextExercise(); }
 function completeWorkout() { progress.workoutsCompleted.push({ level: activeWorkout.level, date: today() }); progress.totalMinutes += activeWorkout.level === "pro" ? 25 : 15; updateStreak(); saveProgress(); activeWorkout = null; navigate("#results"); }
@@ -432,7 +474,12 @@ function fireConfetti() {
 }
 
 function route() { const hash = window.location.hash.replace(/^#/, "") || "home"; const [page, id] = hash.split("/"); document.querySelectorAll("[data-nav]").forEach((link) => link.classList.toggle("active", link.dataset.nav === page)); if (page === "home") renderHome(); else if (page === "workouts") renderWorkouts(); else if (page === "exercises") renderExercises(); else if (page === "challenges") renderChallenges(); else if (page === "results") renderResults(); else if (page === "before") renderBefore(); else if (page === "choose") chooseLevel(); else if (page === "workout" && id) startWorkout(id); else if (page === "challenge" && id && CHALLENGES[id]) startChallenge(id); else renderHome(); window.scrollTo(0, 0); }
-document.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const [action, value] = target.dataset.action.split(":"); if (action === "choose-level") chooseLevel(); if (action === "exercises") navigate("#exercises"); if (action === "start-level") startWorkout(target.dataset.level || value); if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
+document.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const [action, value] = target.dataset.action.split(":");   if (action === "choose-level") chooseLevel();
+  if (action === "exercises") navigate("#exercises");
+  if (action === "start-level") startWorkout(target.dataset.level || value);
+  if (action === "run-warmup") runWarmup();
+  if (action === "pause-warmup") pauseWarmup();
+  if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
 document.addEventListener("input", (event) => { if (event.target.id === "exercise-search") renderExerciseGrid(); });
 document.addEventListener("click", (event) => { const filter = event.target.closest("[data-filter]"); if (!filter) return; document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active")); filter.classList.add("active"); renderExerciseGrid(); });
 window.addEventListener("hashchange", route);
