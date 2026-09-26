@@ -416,14 +416,22 @@ function pauseWarmup() {
   activeWorkout.phase = "warmup";
   renderWorkout();
 }
+function skipWarmup() {
+  clearInterval(timerId);
+  activeWorkout.phase = "ready";
+  activeWorkout.index = 0;
+  activeWorkout.seconds = 0;
+  renderWorkout();
+}
+function warmupSkip() { return `<button class="skip-link" type="button" data-action="skip-warmup">Salta riscaldamento</button><p class="warmup-skip-note">Meglio non saltarlo: qualche minuto di mobilità prepara muscoli e articolazioni e riduce il rischio di infortuni.</p>`; }
 function renderWorkout() {
   clearInterval(timerId); const workout = WORKOUTS[activeWorkout.level];
   if (activeWorkout.phase === "warmup") {
-    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:0%"></i></div></div><div class="player-content"><span class="eyebrow">PRIMA DI INIZIARE</span><h1>${WARMUP.label}</h1><p>${WARMUP.description}</p>${videoEmbed(WARMUP.video, WARMUP.label)}<div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Avvia riscaldamento", "run-warmup", "button button-primary button-large")}</div></section>`;
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:0%"></i></div></div><div class="player-content"><span class="eyebrow">PRIMA DI INIZIARE</span><h1>${WARMUP.label}</h1><p>${WARMUP.description}</p>${videoEmbed(WARMUP.video, WARMUP.label)}<div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Avvia riscaldamento", "run-warmup", "button button-primary button-large")}${warmupSkip()}</div></section>`;
     return;
   }
   if (activeWorkout.phase === "warmup-running") {
-    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:${((1 - activeWorkout.seconds / WARMUP.duration) * 100)}%"></i></div></div><div class="player-content"><span class="eyebrow">RISCALDAMENTO</span><h1>${WARMUP.label}</h1><p>Segui il video e mantieni un ritmo confortevole.</p>${videoEmbed(WARMUP.video, WARMUP.label)}<div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Pausa", "pause-warmup", "button button-ghost button-large")}</div></section>`;
+    app().innerHTML = `<section class="player-page"><div class="player-top"><a href="#workouts">Esci</a><span>${workout.label}</span></div><div class="player-progress"><span>RISCALDAMENTO</span><div><i style="width:${((1 - activeWorkout.seconds / WARMUP.duration) * 100)}%"></i></div></div><div class="player-content"><span class="eyebrow">RISCALDAMENTO</span><h1>${WARMUP.label}</h1><p>Segui il video e mantieni un ritmo confortevole.</p>${videoEmbed(WARMUP.video, WARMUP.label)}<div class="timer-display">${formatTime(activeWorkout.seconds)}</div><strong class="prescription">SECONDI</strong>${button("Pausa", "pause-warmup", "button button-ghost button-large")}${warmupSkip()}</div></section>`;
     return;
   }
   const item = workoutItems(activeWorkout.level)[activeWorkout.index]; const prescription = item.prescription; const isTime = prescription[0] === "time";
@@ -485,6 +493,7 @@ document.addEventListener("click", (event) => { const target = event.target.clos
   if (action === "start-level") startWorkout(target.dataset.level || value);
   if (action === "run-warmup") runWarmup();
   if (action === "pause-warmup") pauseWarmup();
+  if (action === "skip-warmup") skipWarmup();
   if (action === "run-exercise") runExercise(); if (action === "pause-exercise") { clearInterval(timerId); activeWorkout.phase = "ready"; renderWorkout(); } if (action === "complete-exercise") nextExercise(); if (action === "next-round") { activeWorkout.round += 1; activeWorkout.index = 0; activeWorkout.phase = "ready"; renderWorkout(); } if (action === "skip-exercise") skipExercise(); if (action === "complete-workout") completeWorkout(); if (action === "challenge") startChallenge(value); if (action === "run-challenge") runChallenge(value); if (action === "upgrade-level") upgradeLevel(); if (action === "reset-data" && confirm("Azzerare tutti i progressi?")) { progress = { ...DEFAULT_PROGRESS }; saveProgress(); renderResults(); } });
 document.addEventListener("input", (event) => { if (event.target.id === "exercise-search") renderExerciseGrid(); });
 document.addEventListener("click", (event) => { const filter = event.target.closest("[data-filter]"); if (!filter) return; document.querySelectorAll(".filter").forEach((item) => item.classList.remove("active")); filter.classList.add("active"); renderExerciseGrid(); });
