@@ -3,7 +3,7 @@ const EXERCISES = [
   { id: "squat", name: "Squat", category: "legs", description: "Scendi con controllo mantenendo il petto aperto.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/ZQHn7HTqVlA", prescription: ["reps", 10] },
   { id: "lunges", name: "Affondi alternati", category: "legs", description: "Passo indietro, ginocchio morbido e spinta dal piede anteriore.", objective: "Gambe ed equilibrio", video: "https://www.youtube.com/shorts/TmZ5k6jjb6I", prescription: ["reps", 8] },
   { id: "incline-pushup", name: "Push-up facilitato", category: "upper", description: "Usa un supporto stabile e mantieni il corpo allineato.", objective: "Petto, spalle e braccia", video: "https://www.youtube.com/shorts/7o9VrQhpI04", prescription: ["reps", 8] },
-  { id: "pushup", name: "Push-up", category: "upper", description: "Corpo in linea, mani sotto le spalle, movimento controllato.", objective: "Parte superiore", prescription: ["reps", 10] },
+  { id: "pushup", name: "Push-up", category: "upper", description: "Corpo in linea, mani sotto le spalle, movimento controllato.", objective: "Parte superiore", video: "https://www.youtube.com/shorts/BKS69eVjZeU", prescription: ["reps", 10] },
   { id: "close-pushup", name: "Piegamenti stretti", category: "upper", description: "Mani più strette delle spalle, gomiti vicini al corpo.", objective: "Tricipiti e petto", video: "https://www.youtube.com/shorts/6oLfCMIP5mo", prescription: ["reps", 10] },
   { id: "pike-pushup", name: "Pike push up", category: "upper", description: "Bacino alto e corpo a V, piega le braccia portando la testa verso il pavimento.", objective: "Spalle e parte superiore", video: "https://www.youtube.com/shorts/V4WFEsrMFWY", prescription: ["reps", 10] },
   { id: "bridge", name: "Glute bridge", category: "legs", description: "Spingi il bacino verso l'alto senza inarcare la schiena.", objective: "Glutei e catena posteriore", video: "https://www.youtube.com/shorts/vQRzktZJjiM", prescription: ["reps", 12] },
@@ -14,15 +14,14 @@ const EXERCISES = [
   { id: "incline-plank", name: "Plank facilitato", category: "core", description: "Avambracci su un rialzo, corpo in linea e addome attivo.", objective: "Core e stabilità", video: "https://www.youtube.com/shorts/_2c40LBvrAg", prescription: ["time", 20] },
   { id: "jumping-jack", name: "Jumping jack", category: "cardio", description: "Apri e chiudi gambe e braccia a ritmo regolare.", objective: "Cardio e coordinazione", video: "https://www.youtube.com/shorts/bF71PI7T560", prescription: ["time", 30] },
   { id: "mountain", name: "Mountain climber", category: "cardio", description: "Porta le ginocchia al petto mantenendo le spalle forti.", objective: "Cardio e core", video: "https://www.youtube.com/shorts/2CsLOQch6zk", prescription: ["reps", 20] },
-  { id: "superman", name: "Superman", category: "core", description: "Sollevamento leggero di braccia e gambe, senza forzare il collo.", objective: "Schiena e controllo", prescription: ["reps", 12] },
-  { id: "squat-calf", name: "Squat + calf raise", category: "legs", description: "Unisci forza delle gambe e stabilità in un movimento fluido.", objective: "Gambe e stabilità", prescription: ["reps", 12] },
   { id: "sumo-squat", name: "Sumo squat", category: "legs", description: "Piedi larghi e punte aperte, ginocchia in linea con le punte.", objective: "Gambe e adduttori", video: "https://www.youtube.com/shorts/wzFBcDpPAAA", prescription: ["reps", 12] },
   { id: "step-up", name: "Step up", category: "legs", description: "Sali su un gradino spingendo dal piede in appoggio, poi scendi con controllo.", objective: "Gambe e glutei", video: "https://www.youtube.com/shorts/IAOTe-xgmS0", prescription: ["reps", 10] },
-  { id: "burpee", name: "Burpee", category: "cardio", description: "Adatta il salto e il ritmo alle tue capacità.", objective: "Potenza totale", prescription: ["reps", 10] },
+  { id: "burpee", name: "Burpee", category: "cardio", description: "Adatta il salto e il ritmo alle tue capacità.", objective: "Potenza totale", video: "https://www.youtube.com/shorts/EP1G5b_SPvc", prescription: ["reps", 10] },
   { id: "jump-squat", name: "Jump squat", category: "legs", description: "Atterra morbido e mantieni le ginocchia allineate.", objective: "Forza esplosiva", video: "https://www.youtube.com/shorts/HH-gXwBoFgY", videoByLevel: { pro: "https://www.youtube.com/shorts/gzevlT-H3XE" }, prescription: ["reps", 12] },
+  { id: "jump-lunge", name: "Affondi saltati", category: "legs", description: "Dal salto cambia la gamba in avanti, atterra morbido con il ginocchio morbido.", objective: "Gambe e potenza", video: "https://www.youtube.com/shorts/_J_5DjFdlVA", prescription: ["reps", 10] },
   { id: "high-knees", name: "Corsa sul posto ginocchia alte", category: "cardio", description: "Corri sul posto portando le ginocchia alte e il busto stabile.", objective: "Cardio", video: "https://www.youtube.com/shorts/SHuoviorSBQ", prescription: ["time", 40] },
   { id: "shoulder-tap", name: "Plank tocco spalle", category: "core", description: "Tocca la spalla opposta senza oscillare con il bacino.", objective: "Core e spalle", video: "https://www.youtube.com/shorts/IYUW-UqfE7A", prescription: ["reps", 20] },
-  { id: "knee-lift", name: "Sollevamento delle ginocchia", category: "all", description: "Da seduti o in piedi, scegli l'ampiezza più comoda.", objective: "Movimento accessibile", prescription: ["time", 30] },
+  { id: "knee-lift", name: "Sollevamento delle ginocchia", category: "all", description: "Da seduti o in piedi, scegli l'ampiezza più comoda.", objective: "Movimento accessibile", video: "https://www.youtube.com/shorts/IAOTe-xgmS0", prescription: ["time", 30] },
   { id: "torso", name: "Rotazione del busto", category: "mobility", description: "Ruota dolcemente seguendo il respiro.", objective: "Mobilità", prescription: ["time", 30] },
   { id: "sky", name: "Tocca il cielo", category: "mobility", description: "Allunga le braccia verso l'alto, in piedi o da seduti.", objective: "Mobilità e postura", prescription: ["time", 30] }
 ];
@@ -37,8 +36,8 @@ const WARMUP = { duration: 360, video: "https://www.youtube.com/shorts/qH662i7qx
 
 const WORKOUTS = {
   start: { label: "START", icon: "●", color: "green", subtitle: "Per chi comincia", rounds: 2, exercises: ["1 march", "2 squat", "3 lunges", "4 incline-pushup", "5 hip-thrust", "6 calf", "7 bird-dog", "8 incline-plank", "9 plank"] },
-  active: { label: "ACTIVE", icon: "●", color: "yellow", subtitle: "Per chi ha già una buona preparazione", rounds: 2, exercises: ["1 jumping-jack", "2 sumo-squat", "3 step-up", "4 pushup", "5 mountain", "6 hip-thrust", "7 plank", "8 jump-squat", "9 squat-calf"] },
-  pro: { label: "PRO", icon: "●", color: "red", subtitle: "Per chi è allenato", rounds: 2, exercises: ["1 burpee", "2 close-pushup", "3 jump-squat", "4 lunges", "5 mountain", "6 shoulder-tap", "7 pike-pushup", "8 high-knees"] },
+  active: { label: "ACTIVE", icon: "●", color: "yellow", subtitle: "Per chi ha già una buona preparazione", rounds: 2, exercises: ["1 jumping-jack", "2 sumo-squat", "3 knee-lift", "4 pushup", "5 mountain", "6 hip-thrust", "7 plank", "8 jump-squat"] },
+  pro: { label: "PRO", icon: "●", color: "red", subtitle: "Per chi è allenato", rounds: 2, exercises: ["1 burpee", "2 close-pushup", "3 jump-squat", "4 jump-lunge", "5 mountain", "6 shoulder-tap", "7 pike-pushup", "8 high-knees"] },
   all: { label: "LUNGOMARE PER TUTTI", icon: "♿", color: "teal", subtitle: "Movimento adattato a diverse capacità", rounds: 1, exercises: ["1 march", "2 knee-lift", "3 torso", "4 sky", "5 squat", "6 knee-lift", "7 torso", "8 sky"] }
 };
 
